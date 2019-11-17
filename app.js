@@ -14,6 +14,7 @@ const productRoutes = require('./api/routes/products');
 
 const orderRoutes = require('./api/routes/orders');
 
+
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({'extended': false}));
 app.use(bodyParser.json());
@@ -30,6 +31,14 @@ app.use((req,res,next)=>{
 
 app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
+
+app.get('/home', (req,res,next)=>{
+    res.status(200).json({
+        Name : "Anant" ,
+        Age  : "26" ,
+        GmailID: "anantarnav007@gmail.com"
+    });
+});
 
 //Error Handling
 app.use((req,res,next)=>{
