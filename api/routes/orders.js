@@ -35,6 +35,7 @@ router.post('/',(req,res,next)=>{
 router.get('/',(req,res,next)=>{
     Order.find()
     .select('product quantity _id')
+    .populate('product', 'name')
     .exec()
     .then(orderList =>{
     
@@ -68,6 +69,7 @@ router.get('/',(req,res,next)=>{
 router.get('/:orderID',(req, res,next) => {
     Order.findById(req.params.orderID)
     .select('product quantity _id')
+    .populate('product')
     .exec()
     .then(fetchedOder =>{
         if(!fetchedOder){
