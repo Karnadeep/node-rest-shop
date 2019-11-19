@@ -5,10 +5,13 @@ const bodyParser= require('body-parser');
 const mongoose= require('mongoose');
 
 
-mongoose.connect('mongodb://karna:'+ process.env.MONGO_ATLAS_PW +'@ds033831.mlab.com:33831/karna'
+mongoose.connect('mongodb://karna:'+ process.env.MONGO_ATLAS_PW +'@ds033831.mlab.com:33831/karna',
+{useMongoClient: true}
 ).then(()=>{
     console.log('Application connected to database');
 }).catch(err=> console.log('Error while connecting to the database'+ err));
+
+mongoose.Promise=global.Promise;
 
 const productRoutes = require('./api/routes/products');
 
