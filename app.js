@@ -16,6 +16,7 @@ mongoose.Promise=global.Promise;
 const productRoutes = require('./api/routes/products');
 
 const orderRoutes = require('./api/routes/orders');
+const userRoutes = require('./api/routes/users');
 
 
 app.use(morgan('dev'));
@@ -35,6 +36,7 @@ app.use((req,res,next)=>{
 
 app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
+app.use('/users',userRoutes);
 
 app.get('/home', (req,res,next)=>{
     res.status(200).json({

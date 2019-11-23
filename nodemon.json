@@ -1,5 +1,6 @@
 {
     "env" : {
-        "MONGO_ATLAS_PW" : "karna123"
+        "MONGO_ATLAS_PW" : "karna123",
+        "PRIVATE_KEY"  :    "secret"
     }
 }
